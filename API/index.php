@@ -1,14 +1,12 @@
 <?php
-
+/*
 $path = $_SERVER["DOCUMENT_ROOT"] . $_SERVER["REQUEST_URI"];
 $path = str_replace("/", "\\", $path);
-
+*/
 // db conn
-require  $path . "Database/db_params.php";
-require  $path . "Database/db_connection.php";
+require "Database/db_params.php";
+require "Database/DbConnectionParams.php";
+require "Database/MysqliDbConnector.php";
 
-$db_conn = new db_connection($servername, $username, $password, $dbname);
+$db_conn = new MysqliDbConnector( new DbConnectionParams($servername, $username, $password, $dbname) );
 
-$result = $db_conn->getData();
-
- var_dump($result);
